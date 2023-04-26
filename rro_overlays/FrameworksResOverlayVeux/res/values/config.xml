@@ -157,12 +157,12 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>4.5</item>
-        <item>6.6</item>
-        <item>8.0</item>
-        <item>20.0</item>
-        <item>24.3</item>
-        <item>29.7</item>
+        <item>3.5</item>
+        <item>4.3</item>
+        <item>5.0</item>
+        <item>17.0</item>
+        <item>24.0</item>
+        <item>31.0</item>
         <item>34.0</item>
         <item>46.0</item>
         <item>59.0</item>
@@ -273,17 +273,133 @@
          Note that this value should *not* reflect the maximum brightness value for any high
          brightness modes but only the maximum brightness value obtainable in a sustainable manner.
          This array should be equal in size to config_screenBrightnessBacklight -->
-    <integer-array name="config_screenBrightnessNits">
-        <item>5</item>
-        <item>1000</item>
+    <array name="config_screenBrightnessNits">
+        <item>2.0</item>   <!-- index 1 -->
+        <item>1000.0</item>  <!-- index 2 -->
+    </array>
+
+    <!-- Array of output values for LCD backlight corresponding to the lux values
+         in the config_autoBrightnessLevels array.  This array should have size one greater
+         than the size of the config_autoBrightnessLevels array.
+         The brightness values must be between 0 and 255 and be non-decreasing.
+         This must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>16</item>
+        <item>19</item>
+        <item>23</item>
+        <item>77</item>
+        <item>109</item>
+        <item>141</item>
+        <item>154</item>
+        <item>209</item>
+        <item>268</item>
+        <item>345</item>
+        <item>368</item>
+        <item>373</item>
+        <item>373</item>
+        <item>373</item>
+        <item>378</item>
+        <item>378</item>
+        <item>378</item>
+        <item>382</item>
+        <item>382</item>
+        <item>387</item>
+        <item>387</item>
+        <item>387</item>
+        <item>387</item>
+        <item>391</item>
+        <item>405</item>
+        <item>405</item>
+        <item>405</item>
+        <item>409</item>
+        <item>414</item>
+        <item>423</item>
+        <item>428</item>
+        <item>437</item>
+        <item>441</item>
+        <item>450</item>
+        <item>455</item>
+        <item>459</item>
+        <item>473</item>
+        <item>478</item>
+        <item>482</item>
+        <item>491</item>
+        <item>496</item>
+        <item>505</item>
+        <item>509</item>
+        <item>519</item>
+        <item>528</item>
+        <item>623</item>
+        <item>714</item>
+        <item>819</item>
+        <item>933</item>
+        <item>1028</item>
+        <item>1169</item>
+        <item>1274</item>
+        <item>1342</item>
+        <item>1679</item>
+        <item>1820</item>
+        <item>1896</item>
+        <item>1971</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
+        <item>2047</item>
     </integer-array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
          values in the config_screenBrightnessNits array.
          This array should be equal in size to config_screenBrightnessBacklight. -->
     <array name="config_screenBrightnessBacklight">
-        <item>1</item>
-        <item>255</item>
+        <item>5</item>
+        <item>2047</item>
     </array>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
@@ -294,10 +410,16 @@
     <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
     <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
 
+    <!-- Fast brightness animation ramp rate in brightness units per second-->
+    <integer translatable="false" name="config_brightness_ramp_rate_fast">2466</integer>
+
+    <!-- Slow brightness animation ramp rate in brightness units per second-->
+    <integer translatable="false" name="config_brightness_ramp_rate_slow">1973</integer>
+
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">13</integer>
+    <integer name="config_screenBrightnessDim">8</integer>
 
     <!-- The maximum range of gamma adjustment possible using the screen
          auto-brightness adjustment setting. -->
@@ -306,16 +428,15 @@
     <!-- Minimum screen brightness setting allowed by power manager.
          The user is forbidden from setting the brightness below this level.
          Equivalent to 17/4095. -->
-         <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.00415140415</item>
+    <integer name="config_screenBrightnessSettingMinimum">7</integer>
 
     <!-- Maximum screen brightness allowed by the power manager.
          The user is forbidden from setting the brightness above this level.  -->
-    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+    <integer name="config_screenBrightnessSettingMaximum">2047</integer>
 
     <!-- Default screen brightness setting
-         Must be in the range specified by minimum and maximum.
-         Equivalent to 67/255 (default for this device)    -->
-    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.26274509804</item>
+         Must be in the range specified by minimum and maximum. -->
+    <integer name="config_screenBrightnessSettingDefault">536</integer>
 
     <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
          values by calculating the index to use for lookup and then setting the constraint value
@@ -344,7 +465,7 @@
          the screen brightness is recalculated. See the config_ambientThresholdLevels
          description for how the constraint value is chosen. -->
     <integer-array name="config_ambientBrighteningThresholds">
-        <item>2</item>
+        <item>4</item>
         <item>5</item>
         <item>10</item>
         <item>30</item>
@@ -660,7 +781,6 @@
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
     <integer name="config_screenBrightnessDoze">13</integer>
-    <item name="config_screenBrightnessDozeFloat" format="float" type="dimen">0.00317460317</item>
 
     <!-- Configure mobile tcp buffer sizes in the form:
          rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
