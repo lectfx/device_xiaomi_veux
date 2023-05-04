@@ -1853,6 +1853,9 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 # Thermal
 vendor/bin/mi_thermald
 vendor/lib64/libthermalclient.so
+vendor/bin/hw/android.hardware.thermal@2.0-service.qti
+vendor/etc/init/android.hardware.thermal@2.0-service.qti.rc
+-vendor/etc/vintf/manifest/android.hardware.thermal@2.0-service.qti.xml
 
 # Thermal configs
 vendor/etc/thermal-arvr.conf
