@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+LOCAL_PATH := device/xiaomi/veux
+
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
@@ -532,6 +534,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
+
+# Wallpaper
+$(shell cp -r $(LOCAL_PATH)/configs/1080* vendor/octavi/overlay/wallpaper)
+$(shell cp -r $(LOCAL_PATH)/configs/1080* vendor/aosp/overlay/wallpaper)
+$(shell cp -r $(LOCAL_PATH)/configs/1080* vendor/lineage/overlay/wallpaper)
+$(shell cp -r $(LOCAL_PATH)/configs/1080* vendor/arrow/overlay/wallpaper)
 
 # WiFi
 PRODUCT_PACKAGES += \
