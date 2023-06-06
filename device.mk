@@ -251,6 +251,10 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor \
     android.system.keystore2
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light-service.xiaomi
+
 # Media
 PRODUCT_PACKAGES += \
     android.hardware.media.omx@1.0-service \
