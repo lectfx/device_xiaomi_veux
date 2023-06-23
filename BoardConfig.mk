@@ -66,6 +66,9 @@ TARGET_ENABLE_MEDIADRM_64 := true
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
 
+# FMRadio
+BOARD_HAVE_QCOM_FM := true
+
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 LOC_HIDL_VERSION := 4.0
